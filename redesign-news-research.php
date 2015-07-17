@@ -35,7 +35,7 @@ class Homepage_News {
                     <div class="row">
                         <div class="columns">
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
-                            <p>' . $post['post_title'] . '</p>
+                            <p><span  class="anchortext">' . $post['post_title'] . '</span></p>
                         </div>
                     </div>
                 </a>';
@@ -47,7 +47,7 @@ class Homepage_News {
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
                         </div>
                         <div class = "columns medium-12 large-7">
-                            <p>' . $post['post_title'] . '</p>
+                            <p><span class="anchortext">' . $post['post_title'] . '</span></p>
                         </div>
                     </div>
                 </a>';
