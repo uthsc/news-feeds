@@ -42,11 +42,11 @@ class Homepage_News {
                 }
                 else {
                     $news_string .= '<a href = "' . get_permalink($post['ID']) . '">
-                    <div class = "row">
+                    <div class = "row collapse">
                         <div class = "columns medium-12 large-4">
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
                         </div>
-                        <div class = "columns medium-12 large-8">
+                        <div class = "columns medium-12 large-7">
                             <p>' . $post['post_title'] . '</p>
                         </div>
                     </div>
