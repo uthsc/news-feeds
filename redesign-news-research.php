@@ -32,10 +32,12 @@ class Homepage_News {
                 if ($i < 1) {
 
                     $news_string .= '<a href="' . get_permalink($post['ID']) . '">
-                    <div class="row">
-                        <div class="columns">
+                    <div class = "row collapse">
+                        <div class = "columns small-4 medium-12">
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
-                            <p><span  class="anchortext">' . $post['post_title'] . '</span></p>
+                        </div>
+                        <div class = "columns small-12 small-centered">
+                            <p><span class="anchortext">' . $post['post_title'] . '</span></p>
                         </div>
                     </div>
                 </a>';
@@ -43,10 +45,10 @@ class Homepage_News {
                 else {
                     $news_string .= '<a href = "' . get_permalink($post['ID']) . '">
                     <div class = "row collapse">
-                        <div class = "columns medium-12 large-4">
+                        <div class = "columns small-4 medium-12 large-5">
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
                         </div>
-                        <div class = "columns medium-12 large-7">
+                        <div class = "columns small-12 small-centered medium-12 medium-uncentered large-7 large-push-1">
                             <p><span class="anchortext">' . $post['post_title'] . '</span></p>
                         </div>
                     </div>
