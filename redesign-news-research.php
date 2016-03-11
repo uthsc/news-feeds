@@ -15,7 +15,7 @@ class Homepage_News {
         // Returns posts as arrays instead of get_posts' objects
         $recent_posts = wp_get_recent_posts(array(
             'numberposts' => 3,
-            'category' => 60,
+            'category' => 60, // research
             'post_status' => 'publish'
         ));
         
