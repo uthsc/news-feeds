@@ -14,48 +14,47 @@ class Homepage_News {
 
         // Returns posts as arrays instead of get_posts' objects
         $recent_posts = wp_get_recent_posts(array(
-            'numberposts' => 3,
-            'category' => 59, // education
+            'numberposts' => 4,
+            'category' => 10,
             'post_status' => 'publish',
             'meta_key' => '_thumbnail_id'
         ));
-        
+
         /*
          * Set incrementer
-         */        
+         */
         $i = 0;
 
         $news_string = '';
-        
+
         foreach($recent_posts as $post) {
-                if ($i < 1) {
+            if ($i < 1) {
 
-                    $news_string .= '<a href="' . get_permalink($post['ID']) . '">
-                    <div class = "row collapse">
-                        <div class = "columns small-4 medium-12">
+                $news_string .= '<a href="' . get_permalink($post['ID']) . '">
+                    <div class="row">
+                        <div class="columns">
                             <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
-                        </div>
-                        <div class = "columns small-12 small-centered">
-                            <p><span class="anchortext">' . $post['post_title'] . '</span></p>
+                            <p>' . $post['post_title'] . '</p>
                         </div>
                     </div>
                 </a>';
-                }
-                else {
-                    $news_string .= '<a href = "' . get_permalink($post['ID']) . '">
-                    <div class = "row collapse">
-                        <div class = "columns small-4 medium-12 large-5">
-                            <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
-                        </div>
-                        <div class = "columns small-12 small-centered medium-12 medium-uncentered large-7 large-push-1">
-                            <p><span class="anchortext">' . $post['post_title'] . '</span></p>
-                        </div>
-                    </div>
-                </a>';
-                }
-
-                $i++;
             }
+            else {
+                $news_string .= '<a href = "' . get_permalink($post['ID']) . '">
+                    <div class = "row">
+                        <div class = "columns medium-12 large-4">
+                            <figure>' . get_the_post_thumbnail( $post['ID'], 'thumbnail') . '</figure>
+                        </div>
+                        <div class = "columns medium-12 large-8">
+                            <p>' . $post['post_title'] . '</p>
+                        </div>
+                    </div>
+                </a>';
+            }
+
+            $i++;
+        }
+
         return $news_string;
     }
 

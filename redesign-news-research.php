@@ -15,8 +15,9 @@ class Homepage_News {
         // Returns posts as arrays instead of get_posts' objects
         $recent_posts = wp_get_recent_posts(array(
             'numberposts' => 3,
-            'category' => 60,
-            'post_status' => 'publish'
+            'category' => 60, // research
+            'post_status' => 'publish',
+            'meta_key' => '_thumbnail_id'
         ));
         
         /*
@@ -27,8 +28,6 @@ class Homepage_News {
         $news_string = '';
         
         foreach($recent_posts as $post) {
-
-            if ( get_the_post_thumbnail( $post['ID'], 'thumbnail') ) {
                 if ($i < 1) {
 
                     $news_string .= '<a href="' . get_permalink($post['ID']) . '">
@@ -57,8 +56,6 @@ class Homepage_News {
 
                 $i++;
             }
-        }
-
         return $news_string;
     }
 
